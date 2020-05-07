@@ -315,14 +315,11 @@ google.charts.setOnLoadCallback(drawVisualization);
 function drawVisualization() {
 	// inputData = convertArrayColToRows(convertTableToArray('inputSprintTbl'));
 	$.ajax({
-		url: 'http://dummy.restapiexample.com/api/v1/employees',
+		url: 'https://reqres.in/api/users?page=1',
 		type: 'GET',
-		data: {
-			numberOfWords: 1
-		},
 		dataType: 'json',
 		success: function (data) {
-			alert('Data: ' + JSON.stringify(data.status));
+			alert('Total pages: ' + JSON.stringify(data.total));
 		},
 		error: function (request, error) {
 			alert('error: ' + JSON.stringify(error));
