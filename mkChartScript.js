@@ -319,10 +319,10 @@ function drawVisualization() {
 		type: 'GET',
 		dataType: 'json',
 		success: function (data) {
-			alert('Total pages: ' + JSON.stringify(data.total));
+			alert('Total pages: ' + new Date().toDateString() + '--->' + JSON.stringify(data.total));
 		},
 		error: function (request, error) {
-			alert('error: ' + new Date().toDateString + JSON.stringify(error));
+			alert('error 5: ' + new Date().toDateString() + '--->' + JSON.stringify(error));
 		}
 	});
 	// // inputData = convertArrayColToRows(convertDIVTableToArrayNumeric('SprintDetails'));
