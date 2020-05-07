@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<header>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+		<script src="aui/js/aui.min.js"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+		<script src="utilities.js"></script>
+		<script src="mkChartScript.js"></script>
+	</header>
+	<title>Google Charts - BurnUp chart</title>
+
+	<body>
+		<div id="chart_div" style="width: auto; height: 600px;"></div>
+		<p />
+		<div class="container"></div>
+		<p />
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-1"></div>
+				<div class="col-sm-2" id="backlogDetailsTable"></div>
+				<div class="col-sm-6" id="avgVelocityTable">
+					<table class="table" name="avgVelocityTable" style="border: 2px solid;">
+						<thead>
+							<tr>
+								<th style="background-color: #f47136; border: 2px solid black;">
+									Low Velocity
+									<p><sub>25% less than Med. velocity </sub></p>
+								</th>
+								<th style="background-color: #dad61b; border: 2px solid black;">
+									Medium Velocity
+									<p><sub>Avg. velocity </sub></p>
+								</th>
+								<th style="background-color: #31d631; border: 2px solid black;">
+									High Velocity
+									<p>
+										<sub>
+											<select id="lastXSpAvgDropDown" onchange="sprintAvgDropdownChanged()">
+												<option value="3">Last 3 Sprints Average</option>
+												<option value="5">Last 5 Sprints Average</option>
+												<option value="8">Last 8 Sprints Average</option>
+												<option value="0">Max Sprint velocity</option>
+											</select>
+										</sub>
+									</p>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<input
+										type="text"
+										size="5"
+										maxlength="3"
+										name="lowForecast"
+										id="txtBox_lowForecast"
+										onchange="updateForecast()"
+									/>
+								</td>
+								<td>
+									<input
+										type="text"
+										size="5"
+										maxlength="3"
+										name="midForecast"
+										id="txtBox_midForecast"
+										onchange="updateForecast()"
+									/>
+								</td>
+								<td>
+									<input
+										type="text"
+										size="5"
+										maxlength="3"
+										name="highForecast"
+										id="txtBox_highForecast"
+										onchange="updateForecast()"
+									/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-sm-3" id="expectedVelocityTable">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th align="left" scope="row">Compliance Date</th>
+								<td id="txtBox_complianceDate"></td>
+							</tr>
+							<tr>
+								<th align="left" scope="row">Sprints to Complete</th>
+								<td id="txtBox_spToComplete"></td>
+							</tr>
+							<tr>
+								<th align="left" scope="row">Required Velocity</th>
+								<td id="txtBox_requiredVelocity"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<!--  INPUT Sprint Velocity Table -->
+		<div class="alert container">
+			<div class="row">
+				<div id="SprintDetails" class="col-md-auto">
+					<table id="inputSprintTbl" class="table" style="border: 2px solid;">
+						<tbody>
+							<tr>
+								<th scope="col">Sprint</th>
+								<th scope="col">Sp1</th>
+								<th scope="col">Sp2</th>
+								<th scope="col">Sp3</th>
+								<th scope="col">Sp4</th>
+								<th scope="col">Sp5</th>
+								<th scope="col">Sp6</th>
+								<th scope="col">Sp7</th>
+								<th scope="col">Sp8</th>
+								<th scope="col">Sp9</th>
+								<th scope="col">Sp10</th>
+								<th scope="col">Sp11</th>
+								<th scope="col">Sp12</th>
+							</tr>
+							<tr>
+								<td>Remaining Points</td>
+								<td>227</td>
+								<td>247</td>
+								<td>227</td>
+								<td>216</td>
+								<td>159</td>
+								<td>153</td>
+								<td>63</td>
+								<td>153</td>
+								<td>95</td>
+								<td>63</td>
+								<td>63</td>
+								<td>495</td>
+							</tr>
+							<tr>
+								<td>Sprint Velocity</td>
+								<td>0</td>
+								<td>36</td>
+								<td>37</td>
+								<td>71</td>
+								<td>105</td>
+								<td>65</td>
+								<td>91</td>
+								<td>92</td>
+								<td>84</td>
+								<td>87</td>
+								<td>94</td>
+								<td>76</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="DateInput" class="col-md-auto">
+					<table class="table" style="border: 2px solid;">
+						<tbody>
+							<tr>
+								<th scope="row">
+									Sprint Start Date <sup><sub>(yyyy-mm-dd)</sub></sup>
+								</th>
+								<th scope="row">
+									Compliance Date <sub><sup>(yyyy-mm-dd)</sup></sub>
+								</th>
+							</tr>
+							<tr>
+								<td style="text-align: center;">2018-11-12</td>
+								<td style="text-align: center;">2019-08-07</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
