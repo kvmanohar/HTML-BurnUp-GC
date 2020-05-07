@@ -325,7 +325,7 @@ function drawVisualization() {
 			alert('Data: ' + JSON.stringify(data.status));
 		},
 		error: function (request, error) {
-			alert('Request: ' + JSON.stringify(request));
+			alert('error: ' + JSON.stringify(error));
 		}
 	});
 	// // inputData = convertArrayColToRows(convertDIVTableToArrayNumeric('SprintDetails'));
