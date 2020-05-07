@@ -322,7 +322,7 @@ function drawVisualization() {
 			alert('Total pages: ' + JSON.stringify(data.total));
 		},
 		error: function (request, error) {
-			alert('error: ' + JSON.stringify(error));
+			alert('error: ' + new Date().toDateString + JSON.stringify(error));
 		}
 	});
 	// // inputData = convertArrayColToRows(convertDIVTableToArrayNumeric('SprintDetails'));
